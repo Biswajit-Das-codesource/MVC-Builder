@@ -1,14 +1,14 @@
 {
   "name": "mvcset",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
+  "bin": {
+    "mvcset": "index.js"
+  },
   "type": "module",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
-  },
-  "bin": {
-    "mvcset": "./index.js"
   },
   "keywords": [
     "express",
