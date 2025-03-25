@@ -14,12 +14,12 @@ BackSet is a CLI tool that **automates** the setup of an **Express.js MVC** proj
 ## 📦 Installation
 To install the package globally, run:
 ```sh
-npm install -g backset
+npm install -g mvcset
 ```
 
 Or, use it directly with **npx**:
 ```sh
-npx backset
+npx mvcset
 ```
 
 ---

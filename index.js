@@ -27,14 +27,12 @@ const dependencies = [
   "jsonwebtoken",
   "dotenv",
   "cookie-parser",
-  "zod",
+  "zod"
 ];
 const devDependencies = ["nodemon"];
 
 execSync(`npm install ${dependencies.join(" ")}`, { stdio: "inherit" });
-execSync(`npm install --save-dev ${devDependencies.join(" ")}`, {
-  stdio: "inherit",
-});
+execSync(`npm install --save-dev ${devDependencies.join(" ")}`, { stdio: "inherit" });
 
 // Modify package.json
 const packageJson = JSON.parse(fs.readFileSync("package.json"));
@@ -54,7 +52,8 @@ createFile(".env", `PORT=5000\nMONGO_URI=mongodb://localhost:27017/mydb`);
 // Create index.js (Main Server File)
 createFile(
   "index.js",
-  `import express from "express";
+  `
+import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -69,15 +68,16 @@ app.use(cookieParser());
 app.use("/api", userRoutes);
 
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => app.listen(process.env.PORT, () => console.log("🚀 Server running on port", process.env.PORT)))
+  .then(() => app.listen(process.env.PORT, () => console.log("🚀 Server running")))
   .catch((err) => console.error("❌ MongoDB Error:", err));
-  `
+`
 );
 
 // Create User Model
 createFile(
   "models/user.model.js",
-  `import mongoose from "mongoose";
+  `
+import mongoose from "mongoose";
 const userSchema = new mongoose.Schema({
   username: String,
   email: String,
@@ -86,13 +86,14 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 export default mongoose.model("User", userSchema);
-  `
+`
 );
 
 // Create User Controller
 createFile(
   "controllers/user.controller.js",
-  `import User from "../models/user.model.js";
+  `
+import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 
 export const createUser = async (req, res) => {
@@ -102,19 +103,20 @@ export const createUser = async (req, res) => {
   await newUser.save();
   res.json({ message: "✅ User Created", user: newUser });
 };
-  `
+`
 );
 
 // Create User Routes
 createFile(
   "routes/user.routes.js",
-  `import express from "express";
+  `
+import express from "express";
 import { createUser } from "../controllers/user.controller.js";
 const router = express.Router();
 
 router.post("/user", createUser);
 export default router;
-  `
+`
 );
 
 // Final message

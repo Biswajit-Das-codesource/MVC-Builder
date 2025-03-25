@@ -1,9 +1,9 @@
 {
   "name": "mvcset",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "main": "index.js",
   "bin": {
-    "mvcset": "index.js"
+    "backset": "index.js"
   },
   "type": "module",
   "scripts": {
@@ -27,6 +27,7 @@
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.13.0",
+    "mvcset": "^1.0.3",
     "zod": "^3.24.2"
   },
   "devDependencies": {
