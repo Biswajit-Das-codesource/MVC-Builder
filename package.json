@@ -7,8 +7,17 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "",
+  "bin": {
+    "mvcset": "./index.js"
+  },
+  "keywords": [
+    "express",
+    "mvc",
+    "mongodb",
+    "nodejs",
+    "backend"
+  ],
+  "author": "Biswajit Das",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^3.0.2",
@@ -23,5 +32,5 @@
   "devDependencies": {
     "nodemon": "^3.1.9"
   },
-  "description": ""
+  "description": "A simple MVC setup for Express.js with MongoDB"
 }
